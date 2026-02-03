@@ -1,0 +1,109 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "Pilott Zadiiq API",
+  "dateExported": "2026-02-01T01:45:00.000Z",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "containerId": "",
+      "sortNum": 10,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "colId": "col_1",
+      "name": "Login (Admin)",
+      "url": "http://localhost:5000/auth/login",
+      "method": "POST",
+      "modified": "2026-02-01T01:45:00.000Z",
+      "created": "2026-02-01T01:45:00.000Z",
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"admin@test.com\",\n  \"password\": \"1234\"\n}",
+        "form": []
+      },
+      "tests": [
+        {
+          "type": "set-env-var",
+          "custom": "json.token",
+          "action": "setto",
+          "value": "{{token}}"
+        }
+      ]
+    },
+    {
+      "containerId": "",
+      "sortNum": 20,
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "colId": "col_1",
+      "name": "Get All Rooms",
+      "url": "http://localhost:5000/rooms",
+      "method": "GET",
+      "modified": "2026-02-01T01:45:00.000Z",
+      "created": "2026-02-01T01:45:00.000Z",
+      "body": {
+        "type": "json",
+        "raw": "",
+        "form": []
+      }
+    },
+    {
+      "containerId": "",
+      "sortNum": 30,
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "colId": "col_1",
+      "name": "Add Room",
+      "url": "http://localhost:5000/rooms",
+      "method": "POST",
+      "modified": "2026-02-01T01:45:00.000Z",
+      "created": "2026-02-01T01:45:00.000Z",
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"roomNumber\": \"901\",\n  \"type\": \"Deluxe\",\n  \"price\": 250,\n  \"description\": \"Luxury room added via Thunder Client\",\n  \"imageUrl\": \"https://images.unsplash.com/photo-1611892440504-42a792e24d32\"\n}",
+        "form": []
+      }
+    },
+    {
+      "containerId": "",
+      "sortNum": 40,
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "colId": "col_1",
+      "name": "Update Room",
+      "url": "http://localhost:5000/rooms/ROOM_ID_HERE",
+      "method": "PUT",
+      "modified": "2026-02-01T01:45:00.000Z",
+      "created": "2026-02-01T01:45:00.000Z",
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"price\": 300,\n  \"description\": \"Updated price via Thunder Client\"\n}",
+        "form": []
+      }
+    }
+  ]
+}
